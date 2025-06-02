@@ -331,6 +331,25 @@ body {
     border: none;
 }
 
+.twitter-video-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.twitter-tweet {
+    max-width: 780px !important; /* Match your data-media-max-width */
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Override Twitter's iframe styles */
+.twitter-tweet iframe {
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+
 .back-btn {
     display: inline-block;
     background: rgba(255, 255, 255, 0.1);
