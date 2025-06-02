@@ -4,14 +4,14 @@ class DotGrid {
         this.ctx = this.canvas.getContext('2d');
         this.dots = [];
         this.mouse = { x: 0, y: 0 };
-        this.dotSpacing = 35; // Increased density (was 40)
-        this.dotRadius = 2;
-        this.repelDistance = 80;
-        this.repelStrength = 0.3;
+        this.dotSpacing = 50;
+        this.dotRadius = 3;
+        this.repelDistance = 100;
+        this.repelStrength = 10.0;
         this.returnSpeed = 0.05;
         this.time = 0;
         this.floatSpeed = 0.01;
-        this.floatAmplitude = 3; // Reduced floating (was 8)
+        this.floatAmplitude = 3;
         
         this.init();
         this.animate();
