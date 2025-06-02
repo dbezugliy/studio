@@ -64,16 +64,22 @@ body {
 }
 
 .nav-center a {
-    color: white;
+    color: rgb(255, 157, 46);
     text-decoration: none;
     font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    transition: opacity 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    /* transition: opacity 0.3s ease; */
+    transition: text-shadow 0.3s ease;
 }
 
 .nav-center a:hover {
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    color: rgb(255, 131, 60); /* Ensure it remains orange */
+    text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.5), 
+        0 0 25px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(255, 255, 255, 0.1);
 }
 
 .nav-right a {
@@ -130,15 +136,48 @@ body {
     font-size: 1.1rem;
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover .video-thumbnail {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+    background: rgba(255, 145, 0, 0.4);
+}
+
+.play-button {
+    display: none;
 }
 
 .placeholder-text {
     transition: opacity 0.3s ease;
     z-index: 1;
-}
-
-.video-card:hover .video-placeholder {
-    background: rgba(255, 165, 0, 0.3);
 }
 
 .video-card:hover .placeholder-text {
@@ -151,13 +190,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.2rem;
-    color: #fff;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    color: #ffffff;
     text-align: center;
-    width: 90%;
-    z-index: 2;
-    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 3;
+    font-weight: bold;
 }
 
 .video-card:hover .video-title {
@@ -238,6 +276,28 @@ body {
 
 .submit-btn:active {
     transform: translateY(0);
+}
+
+.success-message {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-message h3 {
+    color: #4ade80;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.success-message p {
+    color: #a7f3d0;
+    font-weight: 300;
 }
 
 /* Video Page Styles */
@@ -328,4 +388,6 @@ body {
     .video-container {
         padding: 30px 20px;
     }
+
+    
 }

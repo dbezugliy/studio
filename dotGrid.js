@@ -47,8 +47,10 @@ class DotGrid {
                     vy: 0,
                     floatOffsetX: Math.random() * Math.PI * 2,
                     floatOffsetY: Math.random() * Math.PI * 2,
-                    floatSpeedX: 0.7 + Math.random() * 0.6, // Slower floating
-                    floatSpeedY: 0.7 + Math.random() * 0.6
+                    floatSpeedX: 0.7 + Math.random() * 0.6,
+                    floatSpeedY: 0.7 + Math.random() * 0.6,
+                    orangeInfluence: 0,
+                    lastInfluenceTime: 0
                 });
             }
         }
@@ -56,6 +58,7 @@ class DotGrid {
     
     updateDots() {
         this.time += this.floatSpeed;
+        const currentTime = Date.now();
         
         this.dots.forEach(dot => {
             // Calculate floating position with reduced amplitude
@@ -90,6 +93,26 @@ class DotGrid {
             
             dot.x += dot.vx;
             dot.y += dot.vy;
+            
+            // Update orange influence with lingering effect
+            const distanceFromMouse = Math.sqrt((this.mouse.x - dot.x) ** 2 + (this.mouse.y - dot.y) ** 2);
+            
+            if (distanceFromMouse < this.repelDistance * 1.5) {
+                // Currently influenced by cursor
+                const influence = Math.max(0, 1 - (distanceFromMouse / (this.repelDistance * 1.5)));
+                dot.orangeInfluence = Math.max(dot.orangeInfluence, influence * 0.8);
+                dot.lastInfluenceTime = currentTime;
+            } else {
+                // Check if we should start fading the orange influence
+                const timeSinceLastInfluence = currentTime - dot.lastInfluenceTime;
+                if (timeSinceLastInfluence > 1000) { // 1 second delay
+                    // Fade out the orange influence
+                    dot.orangeInfluence *= 0.95; // Gradual fade
+                    if (dot.orangeInfluence < 0.01) {
+                        dot.orangeInfluence = 0;
+                    }
+                }
+            }
         });
     }
     
@@ -97,13 +120,25 @@ class DotGrid {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
         this.dots.forEach(dot => {
-            // Calculate opacity based on distance from original position
-            const dx = dot.x - dot.originalX;
-            const dy = dot.y - dot.originalY;
-            const displacement = Math.sqrt(dx * dx + dy * dy);
+            // Calculate displacement from original position for opacity
+            const dispDx = dot.x - dot.originalX;
+            const dispDy = dot.y - dot.originalY;
+            const displacement = Math.sqrt(dispDx * dispDx + dispDy * dispDy);
             const opacity = Math.max(0.3, 1 - displacement / 30);
             
-            this.ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+            // Calculate color based on stored orange influence
+            let red = 255;
+            let green = 255;
+            let blue = 255;
+            
+            if (dot.orangeInfluence > 0) {
+                // Blend from white (255,255,255) to orange (255,165,0)
+                red = 255;
+                green = Math.floor(255 - (90 * dot.orangeInfluence)); // 255 -> 165
+                blue = Math.floor(255 - (255 * dot.orangeInfluence)); // 255 -> 0
+            }
+            
+            this.ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`;
             this.ctx.beginPath();
             this.ctx.arc(dot.x, dot.y, this.dotRadius, 0, Math.PI * 2);
             this.ctx.fill();
