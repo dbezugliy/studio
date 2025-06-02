@@ -24,57 +24,92 @@ body {
     pointer-events: none;
 }
 
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.nav-left {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: opacity 0.3s ease;
+}
+
+.nav-left a:hover, .nav-left a.active {
+    opacity: 0.7;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-center a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    transition: opacity 0.3s ease;
+}
+
+.nav-center a:hover {
+    opacity: 0.8;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.nav-right a:hover {
+    opacity: 0.7;
+}
+
 .content {
     position: relative;
     z-index: 1;
-    padding: 60px 40px;
-    max-width: 1200px;
+    padding: 120px 40px 60px;
+    max-width: 1400px;
     margin: 0 auto;
-}
-
-h1 {
-    font-size: 4rem;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-    background: linear-gradient(45deg, #fff, #ccc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #888;
-    margin-bottom: 40px;
-    font-weight: 300;
-}
-
-.portfolio-section {
-    margin-top: 80px;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #fff;
-    font-weight: 300;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     margin-top: 40px;
 }
 
 .video-card {
+    position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    padding: 20px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .video-card:hover {
@@ -83,40 +118,199 @@ h1 {
     transform: translateY(-5px);
 }
 
+.video-card:hover .video-placeholder {
+    background: rgba(255, 165, 0, 0.3);
+}
+
 .video-placeholder {
     width: 100%;
-    height: 200px;
+    height: 300px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
     color: #888;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+    position: relative;
 }
 
 .video-title {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
     color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    width: 90%;
+    z-index: 2;
 }
 
-.video-description {
-    color: #ccc;
-    font-size: 0.9rem;
-    line-height: 1.5;
+.video-card:hover .video-title {
+    opacity: 1;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Video Page Styles */
+.video-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.back-btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
+    .navbar {
+        padding: 0 20px;
+    }
+    
+    .nav-left {
+        gap: 20px;
+    }
+    
+    .nav-left a, .nav-center a {
+        font-size: 0.9rem;
     }
     
     .content {
-        padding: 40px 20px;
+        padding: 100px 20px 40px;
     }
     
     .video-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    .video-container {
+        padding: 30px 20px;
     }
 }

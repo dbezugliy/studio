@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHASMIK - Studio Portfolio</title>
+    <title>PHASMIK - Video</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,21 +24,17 @@
     </nav>
     
     <div class="content">
-        <div class="video-grid">
-            <div class="video-card" onclick="window.location.href='/studio/videoOne.html'">
-                <div class="video-placeholder">Video Preview</div>
-                <h3 class="video-title">Project Title 1</h3>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/lfDsLk6HTpE" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
-            
-            <div class="video-card" onclick="window.location.href='/studio/videoTwo.html'">
-                <div class="video-placeholder">Video Preview</div>
-                <h3 class="video-title">Project Title 2</h3>
-            </div>
-            
-            <div class="video-card" onclick="window.location.href='/studio/videoThree.html'">
-                <div class="video-placeholder">Video Preview</div>
-                <h3 class="video-title">Project Title 3</h3>
-            </div>
+            <a href="/studio/" class="back-btn">← Back to Work</a>
         </div>
     </div>
 
