@@ -74,10 +74,10 @@ body {
 
 .nav-center a:hover {
     color: rgb(255, 131, 60);
-    text-shadow: 
+    /* text-shadow: 
         0 0 8px rgba(255, 255, 255, 0.5), 
         0 0 25px rgba(255, 255, 255, 0.3),
-        0 0 40px rgba(255, 255, 255, 0.1);
+        0 0 40px rgba(255, 255, 255, 0.1); */
 }
 
 .nav-right a {
@@ -132,7 +132,7 @@ body {
     justify-content: center;
     color: #888;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     position: relative;
     overflow: hidden;
 }
@@ -141,11 +141,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .video-card:hover .video-thumbnail {
-    transform: scale(1.05);
+    transform: scale(1.03);
     filter: brightness(0.7);
 }
 
@@ -160,7 +160,7 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     pointer-events: none;
 }
 
@@ -195,6 +195,11 @@ body {
     z-index: 3;
     font-weight: bold;
     padding: 0 20px;
+}
+
+.video-title .subtitle {
+    font-style: italic;
+    font-size: 0.85em; /* Makes it smaller relative to the parent font size */
 }
 
 .video-card:hover .video-title {
