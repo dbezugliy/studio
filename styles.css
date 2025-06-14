@@ -396,6 +396,7 @@ body::before {
     padding: 40px;
     background: #111111;
     border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
 .section-title {

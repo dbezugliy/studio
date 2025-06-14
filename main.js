@@ -75,7 +75,7 @@ class ChallengeCarousel {
         this.dragOffset = this.currentX - this.startX;
         
         // Calculate transition progress based on drag distance
-        const maxDragDistance = 1000; // Distance for full transition
+        const maxDragDistance = 700; // Distance for full transition
         const rawProgress = this.dragOffset / maxDragDistance;
         
         // Determine direction and target
