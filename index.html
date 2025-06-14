@@ -20,7 +20,9 @@
             <a href="index.html">PHASMIK</a>
         </div>
         <div class="nav-right">
-            <a href="https://www.youtube.com/c/phasmik" target="_blank">▶</a>
+            <a href="https://www.youtube.com/c/phasmik" target="_blank">
+                <img src="youtube-icon.png" alt="YouTube" style="width: 24px; height: 24px;">
+            </a>
         </div>
     </nav>
     
@@ -59,7 +61,11 @@
     </div>
 
     <div class="daily-challenges-section">
-            <h2 class="section-title" id="challengeTitle">DAILY CHALLENGES: DAY 1</h2>
+            <div class="title-container">
+                <button class="arrow-btn left-arrow" id="prevBtn"><</button>
+                <h2 class="section-title" id="challengeTitle">DAILY CHALLENGES: DAY 1</h2>
+                <button class="arrow-btn right-arrow" id="nextBtn">></button>
+            </div>
             <div class="carousel-container">
                 <div class="carousel-track" id="carouselTrack">
                     <div class="carousel-item active" data-day="1">
@@ -69,30 +75,33 @@
                         </video>
                     </div>
                     <div class="carousel-item" data-day="2">
-                        <video class="challenge-video" muted>
+                        <video class="challenge-video" muted loop>
                             <source src="Challenges/Challenge2.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="carousel-item" data-day="3">
-                        <video class="challenge-video" muted>
+                        <video class="challenge-video" muted loop>
                             <source src="Challenges/Challenge3.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="carousel-item" data-day="4">
-                        <video class="challenge-video" muted>
+                        <video class="challenge-video" muted loop>
                             <source src="Challenges/Challenge4.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="carousel-item" data-day="5">
-                        <video class="challenge-video" muted>
+                        <video class="challenge-video" muted loop>
                             <source src="Challenges/Challenge5.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
+            </div>
+            <div class="notes-section">
+                <p class="video-notes" id="videoNotes">I love the map animations used in \"Jet Lag: The Game\" videos, so I thought i'd try and recreate the styling. Happy with how it turned out!</p>
             </div>
         </div>
     </div>

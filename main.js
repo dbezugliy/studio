@@ -11,6 +11,15 @@ window.addEventListener('load', () => {
 // Daily Challenges Carousel Class
 class ChallengeCarousel {
     constructor() {
+        this.videoNotes = [
+            "I love the map animations used in \"Jet Lag: The Game\" videos, so I thought i'd try and recreate the styling. Happy with how it turned out!",
+            "This was tough. Was trying recreate a water droplet effect that would displace a video properly as done in a @RC_REJECT promotion, but I couldn't get it quite right. Especially, the water drip at the top looks bad, but I ran out of time to keep working. I imagine they didn't use After Effects for this shot. Will have to revisit this one.",
+            "",
+            "",
+            ""
+        ];
+
+
         this.currentIndex = 0;
         this.totalItems = 5;
         this.isDragging = false;
@@ -27,6 +36,9 @@ class ChallengeCarousel {
         this.title = document.getElementById('challengeTitle');
         
         this.init();
+
+        document.getElementById('prevBtn').addEventListener('click', () => this.goToPrevious());
+        document.getElementById('nextBtn').addEventListener('click', () => this.goToNext());
     }
     
     init() {
@@ -217,17 +229,26 @@ class ChallengeCarousel {
             zIndex: zIndex
         };
     }
+
+    updateNotes() {
+        const notesElement = document.getElementById('videoNotes');
+        if (notesElement) {
+            notesElement.textContent = this.videoNotes[this.currentIndex];
+        }
+    }
     
     goToNext() {
         this.currentIndex = (this.currentIndex + 1) % this.totalItems;
         this.updateCarousel();
         this.playCurrentVideo();
+        this.updateNotes();
     }
     
     goToPrevious() {
         this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
         this.updateCarousel();
         this.playCurrentVideo();
+        this.updateNotes();
     }
     
     updateCarousel() {
@@ -266,6 +287,7 @@ class ChallengeCarousel {
         // Update title
         const currentDay = this.currentIndex + 1;
         this.title.textContent = `DAILY CHALLENGE: DAY ${currentDay}`;
+        this.updateNotes();
     }
     
     playCurrentVideo() {
