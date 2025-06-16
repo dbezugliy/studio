@@ -15,7 +15,7 @@ class ChallengeCarousel {
             "I love the map animations used in \"Jet Lag: The Game\" videos, so I thought i'd try and recreate the styling. It was the first time really using the GeoLayers plugin to make something, and I'm happy with how it turned out!",
             "This was tough. Was trying recreate a water droplet effect that would displace a video properly as done in a @RC_REJECT promotion, but I couldn't get it quite right. Especially, the water drip at the top looks bad, but I ran out of time to keep working. I imagine they didn't use After Effects for this shot. Will have to revisit this one.",
             "Messed around with simple text pop-in and icon animations. A lot of videos try and grab the viewer's attention this way, and I think @maxklymenko does it well. Of course it's more interesting to try to recreate more complicated effects, but optimizing the basics is also important.",
-            "Point clouds. I just wanted to work with some point clouds. They have always been on my mind but I never implemented it in editing. So, I took a video I shot with at an art exibit, mixed it with some gaussian splatting, and voilà.",
+            "Point clouds. I just wanted to work with some point clouds. They have always been on my mind but I never implemented it in editing. So, I took a video I shot at an art exibit, mixed it with some gaussian splatting, and voilà.",
             ""
         ];
 
