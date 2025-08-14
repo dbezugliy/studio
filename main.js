@@ -17,12 +17,13 @@ class ChallengeCarousel {
             "Messed around with simple text pop-in and icon animations. A lot of videos try and grab the viewer's attention this way, and I think @maxklymenko does it well. Of course it's more interesting to try to recreate more complicated effects, but optimizing the basics is also important.",
             "Point clouds. I just wanted to work with some point clouds. They have always been on my mind but I never implemented it in editing. So, I took a video I shot at an art exibit, mixed it with some gaussian splatting, and voilà.",
             "The style used in the artwork from @thatskidding on the right is really good, so I tried to 3D model the charecter figure in Blender. In the future, I want to learn more about animation techniques in Blender than actual modeling.",
-            "Wanted more experience with Bash and Linux, so I spent a few days messing with ricing in Arch. I intend to continue using Arch on the side."
+            "Wanted more experience with Bash and Linux, so I spent a few days messing with ricing in Arch. I intend to continue using Arch on the side.",
+            "After recording long videos with OBS, manually finding highlights in Premiere Pro is tedious. So I though, hmm, I need an app that runs along side OBS so that when there's a highlight, I can press a hotkey to save the timestamp of that moment for future refrence when editing. Using Python and tkinter, I implemented that idea."
         ];
 
 
         this.currentIndex = 0;
-        this.totalItems = 6;
+        this.totalItems = 7;
         this.isDragging = false;
         this.startX = 0;
         this.currentX = 0;
