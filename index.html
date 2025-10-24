@@ -1,125 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phasmik</title>
-    <link rel="icon" type="image/jpg" href="broken.jpg">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <canvas id="dotCanvas"></canvas>
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="index.html" class="active">Work</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="nav-center">
-            <a href="index.html">PHASMIK</a>
-        </div>
-        <div class="nav-right">
-            <a href="https://www.youtube.com/c/phasmik" target="_blank">
-                <img src="youtube-icon.png" alt="YouTube" style="width: 50px; height: 50pxpx;">
-            </a>
-        </div>
-    </nav>
-    
-    <div class="content">
-        <div class="video-grid">
-            <div class="video-card" onclick="window.location.href='videoOne.html'">
-                <div class="video-placeholder">
-                    <img src="https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail">
-                    <div class="play-overlay">
-                        <div class="play-button">▶</div>
-                    </div>
-                </div>
-                <h3 class="video-title">Personal Travel Vlog<br><span class="subtitle">(Experimental Intro)</span></h3>
-            </div>
-            
-            <div class="video-card" onclick="window.location.href='videoTwo.html'">
-                <div class="video-placeholder">
-                    <img src="https://img.youtube.com/vi/uJos6RXDRpM/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail">
-                    <div class="play-overlay">
-                        <div class="play-button">▶</div>
-                    </div>
-                </div>
-                <h3 class="video-title">Esports Hype Video<br><span class="subtitle">(Two Day Edit)</span></h3>
-            </div>
-            
-            <div class="video-card" onclick="window.location.href='videoThree.html'">
-                <div class="video-placeholder">
-                    <img src="https://pbs.twimg.com/ext_tw_video_thumb/1634245203690135554/pu/img/TO5bI23jJnO9GfUU.jpg" alt="Video Thumbnail" class="video-thumbnail">
-                    <div class="play-overlay">
-                        <div class="play-button">▶</div>
-                    </div>
-                </div>
-                <h3 class="video-title">Esports Invitational Promo<br><span class="subtitle">(Sponsor Collaboration)</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="daily-challenges-section">
-            <div class="title-container">
-                <button class="arrow-btn left-arrow" id="prevBtn">◀</button>
-                <h2 class="section-title" id="challengeTitle">DAILY CHALLENGES: DAY 1</h2>
-                <button class="arrow-btn right-arrow" id="nextBtn">▶</button>
-            </div>
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-item active" data-day="1">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="2">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="3">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="4">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge4.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="5">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge5.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="6">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge6.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item" data-day="7">
-                        <video class="challenge-video" muted loop>
-                            <source src="Challenges/Challenge7.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-            <div class="notes-section">
-                <p class="video-notes" id="videoNotes">I love the map animations used in \"Jet Lag: The Game\" videos, so I thought i'd try and recreate the styling. Happy with how it turned out!</p>
-            </div>
-        </div>
-    </div>
-    
-
-    <script src="dotGrid.js"></script>
-    <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>studio-2</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
