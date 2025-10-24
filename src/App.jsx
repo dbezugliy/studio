@@ -70,7 +70,7 @@ const CODING_PROJECTS = [
     id: 5,
     title: "Caterpillar Intern",
     description: "Notification Service Engine",
-    image: "/img/cat.jpg",
+    image: "./img/cat.jpg",
     link: "https://digital.cat.com/",
     type: "github",
     tags: ["Java", "Scala", "AWS", "Swagger"]
@@ -79,7 +79,7 @@ const CODING_PROJECTS = [
     id: 6,
     title: "Various Game Projects",
     description: "VR, Gamejams, and More",
-    image: "/img/game.jpg",
+    image: "./img/game.jpg",
     link: "https://github.com/dbezugliy/various-game-projects",
     type: "github",
     tags: ["C++", "Q/A", "Unreal"]
@@ -88,7 +88,7 @@ const CODING_PROJECTS = [
     id: 7,
     title: "Homemade Laser Tag",
     description: "Client-Server Architecture",
-    image: "/img/laser_gun.PNG",
+    image: "./img/laser_gun.PNG",
     link: "https://github.com/dbezugliy/Laser-Tag-System",
     type: "github",
     tags: ["Python", "IoT", "Multithreading"]
@@ -97,7 +97,7 @@ const CODING_PROJECTS = [
     id: 8,
     title: "This Portfolio",
     description: "Woah, you found it!",
-    image: "/img/portfolio.PNG",
+    image: "./img/portfolio.PNG",
     link: "https://github.com/dbezugliy/weather-app",
     type: "github",
     tags: ["React", "Tailwind CSS", "Copilot"]
@@ -106,7 +106,7 @@ const CODING_PROJECTS = [
     id: 9,
     title: "MBTI Tweet Analysis",
     description: "Machine Learning Classification",
-    image: "/img/tweet_results.png",
+    image: "./img/tweet_results.png",
     link: "https://github.com/dbezugliy/mbti-tweet-analysis",
     type: "github",
     tags: ["Python", "TF-IDF", "Word2Vec"]
@@ -121,7 +121,7 @@ const ABOUT_ME = {
     bold: "Ukrainian VFX / Software Developer based in Chicago",
     normal: "\n \nVisual storytelling and manipulation has always been a passion of mine, whether through video editing or crafting code to build innovative software solutions."
   },
-  image: "/img/me.jpg"
+  image: "./img/me.jpg"
 };
 
 // ===== COMPONENT: PROJECT CARD =====
@@ -232,13 +232,13 @@ const Portfolio = () => {
       <style>{`
         @font-face {
           font-family: 'Boldstrom';
-          src: url('/fonts/Boldstrom.otf') format('opentype');
+          src: url('./fonts/Boldstrom.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
         }
           @font-face {
           font-family: 'Helvetica';
-          src: url('/fonts/HelveticaNeueMedium.otf') format('opentype');
+          src: url('./fonts/HelveticaNeueMedium.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
         }
