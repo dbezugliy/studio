@@ -1,31 +1,38 @@
 import React, { useState } from 'react';
 
 // ===== COLOR CONFIGURATION =====
-// Edit these colors to change the entire site's color scheme
 const COLORS = {
-  primary: '#e7112eff',      // Main brand color
   primaryHover: '#ffffffff', // Hover state for primary
   text: '#ffffffff',         // Main text color
-  textLight: '#6b7280',    // Secondary text color
+  textLight: '#6b7280',      // Secondary text color
   background: '#000000ff',   // Page background
   cardBg: '#000000ff',       // Card background
   border: '#1a1a1aff',       // Border color
-  navActive: '#ff2d2d',    // Active navigation item
-  tagsBg: '#e7112e2f'        // Tags background
+};
+
+// ===== VIDEO COLOR CONFIGURATION =====
+const VIDEO_COLORS = {
+  primary: '#e7112eff',      // Red for video mode
+  navActive: '#ff2d2d',      // Active navigation in video mode
+  tagsBg: '#e7112e2f'        // Tags background in video mode
+};
+
+// ===== CODING MODE COLOR OVERRIDES =====
+const CODING_COLORS = {
+  primary: '#3510bdff',      // Blue for coding mode
+  navActive: '#3510bdff',    // Active navigation in coding mode
+  tagsBg: '#0062ff42'        // Tags background in coding mode
 };
 
 // ===== FONT CONFIGURATION =====
-// Edit these to change fonts throughout the site
-// To use custom fonts, place font files in /public/fonts/ folder
 const FONTS = {
-  navTitle: 'Boldstrom',     // Navigation bar title (DANIEL BEZUGLIY)
-  headings: 'monospace',     // Project titles, section headers
-  body: 'monospace',         // Body text, descriptions
-  mono: 'monospace',         // Code or special text
+  navTitle: 'Boldstrom',
+  headings: 'monospace',
+  body: 'monospace',
+  mono: 'monospace',
 };
 
 // ===== PROJECTS CONFIGURATION =====
-// Add new projects here - supports both YouTube and GitHub links
 const VIDEO_PROJECTS = [
   {
     id: 1,
@@ -211,17 +218,9 @@ const Portfolio = () => {
   };
 
   // Get current colors based on mode
-  const currentColors = portfolioMode === 'coding' ? {
-    primary: '#3510bdff',      // Blue for coding
-    primaryHover: '#ffffffff',
-    text: '#ffffffff',
-    textLight: '#6b7280',
-    background: '#000000ff',
-    cardBg: '#000000ff',
-    border: '#1a1a1aff',
-    navActive: '#3510bdff',
-    tagsBg: '#3b82f620'
-  } : COLORS;
+  const currentColors = portfolioMode === 'coding' 
+    ? { ...COLORS, ...CODING_COLORS }
+    : { ...COLORS, ...VIDEO_COLORS };
 
   // Get current projects based on mode
   const currentProjects = portfolioMode === 'coding' ? CODING_PROJECTS : VIDEO_PROJECTS;
