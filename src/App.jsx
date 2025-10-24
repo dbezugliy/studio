@@ -98,7 +98,7 @@ const CODING_PROJECTS = [
     title: "This Portfolio",
     description: "Woah, you found it!",
     image: "./img/portfolio.PNG",
-    link: "https://github.com/dbezugliy/weather-app",
+    link: "https://github.com/dbezugliy/studio",
     type: "github",
     tags: ["React", "Tailwind CSS", "Copilot"]
   },
