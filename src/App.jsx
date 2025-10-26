@@ -126,7 +126,7 @@ const ABOUT_ME = {
   tags: ["Video Editor", "Software Engineer", "Ukrainian"],
   description: {
     bold: "Ukrainian VFX / Software Developer based in Chicago",
-    normal: "\n \nVisual storytelling and manipulation has always been a passion of mine, whether through video editing or crafting code to build innovative software solutions."
+    normal: "\n \nVisual storytelling and expression has always been a passion of mine, whether through video editing or crafting code to build innovative software solutions."
   },
   image: "./img/me.jpg"
 };
