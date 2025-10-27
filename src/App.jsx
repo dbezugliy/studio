@@ -352,7 +352,7 @@ const ExperimentalSlideshow = ({ projects, colors }) => {
         {projects.map((project, index) => (
           <div
             key={project.id}
-            className="absolute top-0 left-0 w-full h-full transition-opacity duration-1000"
+            className="absolute top-0 left-0 w-full h-full"
             style={{ opacity: index === currentSlide ? 1 : 0 }}
           >
             {project.type === "video" ? (
@@ -366,7 +366,7 @@ const ExperimentalSlideshow = ({ projects, colors }) => {
               />
             ) : (
               <img
-                src={project.img || project.media} // Fallback to media if img doesn't exist
+                src={project.img || project.media}
                 alt={project.text}
                 className="w-full h-full object-cover"
               />
