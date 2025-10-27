@@ -107,7 +107,7 @@ const CODING_PROJECTS = [
     image: "./img/portfolio.PNG",
     link: "https://github.com/dbezugliy/studio",
     type: "github",
-    tags: ["React", "Tailwind CSS", "Copilot"]
+    tags: ["React", "Tailwind CSS", "Vite"]
   },
   {
     id: 9,
