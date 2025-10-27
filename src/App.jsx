@@ -148,14 +148,16 @@ const ProjectCard = ({ project, colors }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img 
-        src={project.image} 
-        alt={project.title}
-        className="w-full h-48 object-cover"
-        style={{
-          border: isHovered ? `2px dashed ${colors.text}` : `2px solid ${colors.border}`
-        }}
-      />
+      <div className="w-full" style={{ paddingBottom: '56.25%', position: 'relative' }}>
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{
+            border: isHovered ? `2px dashed ${colors.text}` : `2px solid ${colors.border}`
+          }}
+        />
+      </div>
       <div className="p-2">
         <h3 
           className="text-lg font-bold mb-0.5 inline-block px-2 py-1 -ml-2 -mr-2"
@@ -245,15 +247,15 @@ const Portfolio = () => {
 
       {/* Navigation */}
       <nav className="border-b-2" style={{ borderColor: currentColors.border }}>
-        <div className="max-w-7xl mx-auto px-4 py-12 pb-8">
+        <div className="max-w-7xl mx-auto px-4 py-6 md:py-12 md:pb-8">
           <div className="flex items-center justify-between">
             {/* Left - Navigation Links */}
-            <div className="flex gap-8">
+            <div className="flex gap-3 md:gap-8">
               {['Home', 'Projects', 'Contact'].map(page => (
                 <button
                   key={page}
                   onClick={() => setActivePage(page)}
-                  className="text-sm font-medium pb-1 transition-colors cursor-pointer"
+                  className="text-xs md:text-sm font-medium pb-1 transition-colors cursor-pointer"
                   style={{
                     color: activePage === page ? currentColors.navActive : currentColors.text,
                     borderBottom: activePage === page ? `2px solid ${currentColors.navActive}` : 'none'
@@ -266,7 +268,7 @@ const Portfolio = () => {
             
             {/* Center - Title */}
             <h1 
-              className="text-6xl font-bold absolute left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-70 transition-opacity"
+              className="text-xl md:text-4xl lg:text-6xl font-bold absolute left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-70 transition-opacity whitespace-nowrap"
               style={{ 
                 color: currentColors.primary,
                 fontFamily: FONTS.navTitle
@@ -277,14 +279,14 @@ const Portfolio = () => {
             </h1>
             
             {/* Right - Social Icons */}
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-2 md:gap-4 items-center">
               <a 
                 href="https://www.youtube.com/@Phasmik" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-50"
               >
-                <svg className="w-6 h-6" style={{ fill: currentColors.text }} viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-6 md:h-6" style={{ fill: currentColors.text }} viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
@@ -294,7 +296,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="hover:opacity-50"
               >
-                <svg className="w-6 h-6" style={{ fill: currentColors.text }} viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-6 md:h-6" style={{ fill: currentColors.text }} viewBox="0 0 24 24">
                   <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                 </svg>
               </a>
@@ -306,29 +308,135 @@ const Portfolio = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 pt-8 py-12">
         {activePage === 'Home' && (
-          <div 
-            className="grid grid-cols-[1fr_auto_2fr_auto_1fr] gap-6 items-stretch"
-            style={{ gridTemplateAreas: '"left divider-left center divider-right right"' }}
-          >
-            {/* Left Column - 2 Projects */}
-            <div style={{ gridArea: 'left' }} className="space-y-6">
-              <ProjectCard project={currentProjects[0]} colors={currentColors} />
-              <ProjectCard project={currentProjects[1]} colors={currentColors} />
+          <>
+            {/* Desktop Layout */}
+            <div 
+              className="hidden lg:grid grid-cols-[1fr_auto_2fr_auto_1fr] gap-6 items-stretch"
+              style={{ gridTemplateAreas: '"left divider-left center divider-right right"' }}
+            >
+              {/* Left Column - 2 Projects */}
+              <div style={{ gridArea: 'left' }} className="space-y-6">
+                <ProjectCard project={currentProjects[0]} colors={currentColors} />
+                <ProjectCard project={currentProjects[1]} colors={currentColors} />
+              </div>
+
+              {/* Left Divider */}
+              <div 
+                style={{ 
+                  gridArea: 'divider-left',
+                  backgroundColor: currentColors.border,
+                  width: '2px'
+                }}
+              />
+
+              {/* Center Column - About Me */}
+              <div style={{ gridArea: 'center' }}>
+                <div 
+                  className="shadow-sm h-full"
+                  style={{ backgroundColor: currentColors.cardBg}}
+                >
+                  <div
+                    onClick={() => handleModeChange(portfolioMode === 'video' ? 'coding' : 'video')}
+                    className="block cursor-pointer overflow-visible"
+                    onMouseEnter={() => setIsAboutMeHovered(true)}
+                    onMouseLeave={() => setIsAboutMeHovered(false)}
+                  >
+                    <div className="relative">
+                      <img 
+                        src={ABOUT_ME.image}
+                        alt="About Me"
+                        className="w-full h-105 object-cover object-[center_77%] scale-100"
+                        style={{ 
+                          border: isAboutMeHovered ? `2px dashed ${currentColors.text}` : `2px solid ${currentColors.border}`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-8 text-center">
+                    <h2 className="text-3xl font-bold mb-2 flex items-center justify-center gap-3" style={{ 
+                      color: currentColors.text,
+                      fontFamily: FONTS.headings
+                    }}>
+                      <span>My</span>
+                      
+                      {/* Vertical Slider */}
+                      <div 
+                        className="relative cursor-pointer transition-all duration-300 ease-in-out"
+                        style={{ 
+                          height: '40px',
+                          width: portfolioMode === 'video' ? '90px' : '120px',
+                          overflow: 'hidden'
+                        }}
+                        onClick={() => handleModeChange(portfolioMode === 'video' ? 'coding' : 'video')}
+                      >
+                        <div 
+                          className="absolute transition-transform duration-300 ease-in-out"
+                          style={{
+                            transform: portfolioMode === 'video' ? 'translateY(0)' : 'translateY(-40px)',
+                            width: '100%'
+                          }}
+                        >
+                          {/* Video option */}
+                          <div 
+                            className="flex items-center justify-center px-3 py-1"
+                            style={{
+                              height: '40px',
+                              backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
+                              color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight
+                            }}
+                          >
+                            Video
+                          </div>
+                          
+                          {/* Coding option */}
+                          <div 
+                            className="flex items-center justify-center px-3 py-1"
+                            style={{
+                              height: '40px',
+                              backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
+                              color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight
+                            }}
+                          >
+                            Coding
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <span>Portfolio!</span>
+                    </h2>
+                    
+                    <p className="text-base leading-relaxed whitespace-pre-line" style={{ 
+                      color: currentColors.textLight,
+                      fontFamily: FONTS.body
+                    }}>
+                      <span className="font-bold">{ABOUT_ME.description.bold}</span>
+                      {ABOUT_ME.description.normal}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Divider */}
+              <div 
+                style={{ 
+                  gridArea: 'divider-right',
+                  backgroundColor: currentColors.border,
+                  width: '2px'
+                }}
+              />
+
+              {/* Right Column - 2 Projects */}
+              <div style={{ gridArea: 'right' }} className="space-y-6">
+                <ProjectCard project={currentProjects[2]} colors={currentColors} />
+                <ProjectCard project={currentProjects[3]} colors={currentColors} />
+              </div>
             </div>
 
-            {/* Left Divider */}
-            <div 
-              style={{ 
-                gridArea: 'divider-left',
-                backgroundColor: currentColors.border,
-                width: '2px'
-              }}
-            />
-
-            {/* Center Column - About Me */}
-            <div style={{ gridArea: 'center' }}>
+            {/* Mobile Layout */}
+            <div className="lg:hidden space-y-6">
+              {/* About Me Section */}
               <div 
-                className="shadow-sm h-full"
+                className="shadow-sm"
                 style={{ backgroundColor: currentColors.cardBg}}
               >
                 <div
@@ -341,15 +449,15 @@ const Portfolio = () => {
                     <img 
                       src={ABOUT_ME.image}
                       alt="About Me"
-                      className="w-full h-105 object-cover object-[center_77%] scale-100"
+                      className="w-full h-64 md:h-96 object-cover object-[center_77%]"
                       style={{ 
                         border: isAboutMeHovered ? `2px dashed ${currentColors.text}` : `2px solid ${currentColors.border}`
                       }}
                     />
                   </div>
                 </div>
-                <div className="p-8 text-center">
-                  <h2 className="text-3xl font-bold mb-2 flex items-center justify-center gap-3" style={{ 
+                <div className="p-6 text-center">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center justify-center gap-2 md:gap-3" style={{ 
                     color: currentColors.text,
                     fontFamily: FONTS.headings
                   }}>
@@ -359,8 +467,8 @@ const Portfolio = () => {
                     <div 
                       className="relative cursor-pointer transition-all duration-300 ease-in-out"
                       style={{ 
-                        height: '40px',
-                        width: portfolioMode === 'video' ? '90px' : '120px',
+                        height: '36px',
+                        width: portfolioMode === 'video' ? '80px' : '110px',
                         overflow: 'hidden'
                       }}
                       onClick={() => handleModeChange(portfolioMode === 'video' ? 'coding' : 'video')}
@@ -368,7 +476,7 @@ const Portfolio = () => {
                       <div 
                         className="absolute transition-transform duration-300 ease-in-out"
                         style={{
-                          transform: portfolioMode === 'video' ? 'translateY(0)' : 'translateY(-40px)',
+                          transform: portfolioMode === 'video' ? 'translateY(0)' : 'translateY(-36px)',
                           width: '100%'
                         }}
                       >
@@ -376,7 +484,7 @@ const Portfolio = () => {
                         <div 
                           className="flex items-center justify-center px-3 py-1"
                           style={{
-                            height: '40px',
+                            height: '36px',
                             backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
                             color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight
                           }}
@@ -388,7 +496,7 @@ const Portfolio = () => {
                         <div 
                           className="flex items-center justify-center px-3 py-1"
                           style={{
-                            height: '40px',
+                            height: '36px',
                             backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
                             color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight
                           }}
@@ -401,7 +509,7 @@ const Portfolio = () => {
                     <span>Portfolio!</span>
                   </h2>
                   
-                  <p className="text-base leading-relaxed whitespace-pre-line" style={{ 
+                  <p className="text-sm md:text-base leading-relaxed whitespace-pre-line" style={{ 
                     color: currentColors.textLight,
                     fontFamily: FONTS.body
                   }}>
@@ -410,23 +518,24 @@ const Portfolio = () => {
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Right Divider */}
-            <div 
-              style={{ 
-                gridArea: 'divider-right',
-                backgroundColor: currentColors.border,
-                width: '2px'
-              }}
-            />
+              {/* Divider */}
+              <div 
+                style={{ 
+                  backgroundColor: currentColors.border,
+                  height: '2px',
+                  width: '100%'
+                }}
+              />
 
-            {/* Right Column - 2 Projects */}
-            <div style={{ gridArea: 'right' }} className="space-y-6">
-              <ProjectCard project={currentProjects[2]} colors={currentColors} />
-              <ProjectCard project={currentProjects[3]} colors={currentColors} />
+              {/* Projects Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {currentProjects.map(project => (
+                  <ProjectCard key={project.id} project={project} colors={currentColors} />
+                ))}
+              </div>
             </div>
-          </div>
+          </>
         )}
 
         {activePage === 'Projects' && (
