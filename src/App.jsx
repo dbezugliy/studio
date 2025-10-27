@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // ===== COLOR CONFIGURATION =====
 const COLORS = {
@@ -55,7 +55,7 @@ const VIDEO_PROJECTS = [
   {
     id: 3,
     title: "Look At Me",
-    description: "Team Roster Announcement",
+    description: "Quick Turnaround Project",
     image: "https://img.youtube.com/vi/uJos6RXDRpM/maxresdefault.jpg",
     link: "https://www.youtube.com/watch?v=uJos6RXDRpM",
     type: "youtube",
@@ -63,18 +63,72 @@ const VIDEO_PROJECTS = [
   },
   {
     id: 4,
-    title: "Japan Travel Vlog",
-    description: "Personal Travel Vlog",
+    title: "I Travled for Two Months",
+    description: "Personal Vlog",
     image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
     link: "https://www.youtube.com/watch?v=lfDsLk6HTpE",
     type: "youtube",
     tags: ["After Effects", "Photoshop"]
+  },
+  {
+    id: 5,
+    title: "The Ultimate Peak Achievement",
+    description: "Entertainment / Gaming",
+    image: "https://img.youtube.com/vi/O2txDgHe77g/maxresdefault.jpg",
+    link: "https://www.youtube.com/shorts/O2txDgHe77g",
+    type: "youtube",
+    tags: ["After Effects", "Short"]
+  },
+  {
+    id: 6,
+    title: "This is Peak PVP",
+    description: "Entertainment / Gaming",
+    image: "https://img.youtube.com/vi/TKpMZxe5MVI/maxresdefault.jpg",
+    link: "https://www.youtube.com/shorts/TKpMZxe5MVI",
+    type: "youtube",
+    tags: ["After Effects", "Short"]
+  },
+  {
+    id: 7,
+    title: "Quess My Favorite Video Game",
+    description: "Quiz Format",
+    image: "https://img.youtube.com/vi/5LQnUJ755D8/maxresdefault.jpg",
+    link: "https://www.youtube.com/shorts/5LQnUJ755D8",
+    type: "youtube",
+    tags: ["After Effects", "Esports", "Short"]
+  },
+  {
+    id: 8,
+    title: "All Aim, No Brain",
+    description: "KovaaK 2.0 Sponsorship",
+    image: "https://img.youtube.com/vi/UVIURDfJ3eY/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=UVIURDfJ3eY",
+    type: "youtube",
+    tags: ["Premiere", "Esports"]
+  },
+  {
+    id: 9,
+    title: "Who Are We",
+    description: "Long Form Closed-Captioning",
+    image: "https://img.youtube.com/vi/625AmS7agzY/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=625AmS7agzY",
+    type: "youtube",
+    tags: ["Premiere", "Esports"]
+  },
+  {
+    id: 10,
+    title: "QUAD DAY 2022",
+    description: "Informational Event Video",
+    image: "https://img.youtube.com/vi/e_la0KhjZ8A/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=e_la0KhjZ8A",
+    type: "youtube",
+    tags: ["Premiere", "Esports"]
   }
 ];
 
 const CODING_PROJECTS = [
   {
-    id: 5,
+    id: 11,
     title: "Caterpillar Intern",
     description: "Notification Service Engine",
     image: "./img/cat.jpg",
@@ -83,7 +137,7 @@ const CODING_PROJECTS = [
     tags: ["Java", "Scala", "AWS", "Swagger"]
   },
   {
-    id: 6,
+    id: 12,
     title: "Various Game Projects",
     description: "VR, Gamejams, and More",
     image: "./img/game.jpg",
@@ -92,7 +146,7 @@ const CODING_PROJECTS = [
     tags: ["C++", "Q/A", "Unreal"]
   },
   {
-    id: 7,
+    id: 13,
     title: "Homemade Laser Tag",
     description: "Client-Server Architecture",
     image: "./img/laser_gun.PNG",
@@ -101,7 +155,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "IoT", "Multithreading"]
   },
   {
-    id: 8,
+    id: 14,
     title: "This Portfolio",
     description: "Woah, you found it!",
     image: "./img/portfolio.PNG",
@@ -110,7 +164,7 @@ const CODING_PROJECTS = [
     tags: ["React", "Tailwind CSS", "Vite"]
   },
   {
-    id: 9,
+    id: 15,
     title: "MBTI Tweet Analysis",
     description: "Machine Learning Classification",
     image: "./img/tweet_results.png",
@@ -118,6 +172,37 @@ const CODING_PROJECTS = [
     type: "github",
     tags: ["Python", "TF-IDF", "Word2Vec"]
   }
+];
+
+// ===== EXPERIMENTAL PROJECTS CONFIGURATION =====
+const VIDEO_EXPERIMENTAL_PROJECTS = [
+  {
+    id: 16,
+    media: "./img/experiment/video_1.mp4",
+    type: "video",
+    text: "GeoLayers in After Effects"
+  },
+  {
+    id: 16,
+    media: "./img/experiment/video_2.mp4",
+    type: "video",
+    text: "Gaussian Splatting in After Effects"
+  }
+];
+
+const CODING_EXPERIMENTAL_PROJECTS = [
+  {
+    id: 18,
+    img: "./img/experiment/touch.jpg",
+    type: "image", // Added type field
+    text: "Customizable Pressure Keys via Arduino"
+  },
+  {
+    id: 19,
+    media: "./img/experiment/coding_1.mp4",
+    type: "video",
+    text: "OBS Global Hotkey Tracker"
+  },
 ];
 
 // ===== ABOUT ME CONFIGURATION =====
@@ -194,6 +279,181 @@ const ProjectCard = ({ project, colors }) => {
   );
 };
 
+// ===== COMPONENT: EXPERIMENTAL SLIDESHOW =====
+const ExperimentalSlideshow = ({ projects, colors }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide(prev => (prev + 1) % projects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev - 1 + projects.length) % projects.length);
+  };
+
+  // Create a ref to store the timer
+  const timerRef = useRef(null);
+
+  // Auto-rotate every 10 seconds with reset capability
+  useEffect(() => {
+    // Clear existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    
+    // Set new timer
+    timerRef.current = setInterval(nextSlide, 10000);
+    
+    // Cleanup on unmount
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [projects.length]);
+
+  const handleNextSlide = () => {
+    // Clear existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    
+    // Go to next slide
+    nextSlide();
+    
+    // Reset timer
+    timerRef.current = setInterval(nextSlide, 10000);
+  };
+
+  const handlePrevSlide = () => {
+    // Clear existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    
+    // Go to previous slide
+    prevSlide();
+    
+    // Reset timer
+    timerRef.current = setInterval(nextSlide, 10000);
+  };
+
+  return (
+    <div 
+      className="relative w-full min-h-[400px] lg:col-start-3 lg:row-start-1 lg:row-span-2 flex flex-col"
+      style={{ border: `2px dashed ${colors.primary}` }}
+    >
+      <div className="p-4 border-b-2" style={{ borderColor: colors.primary }}>
+        <h3 className="text-lg font-bold" style={{ color: colors.text, fontFamily: FONTS.headings }}>
+          DAILY EXPERIMENTALS
+        </h3>
+      </div>
+      <div className="relative flex-1 overflow-hidden">
+        {projects.map((project, index) => (
+          <div
+            key={project.id}
+            className="absolute top-0 left-0 w-full h-full transition-opacity duration-1000"
+            style={{ opacity: index === currentSlide ? 1 : 0 }}
+          >
+            {project.type === "video" ? (
+              <video
+                src={project.media}
+                className="w-full h-full object-cover"
+                muted
+                autoPlay
+                loop
+                playsInline
+              />
+            ) : (
+              <img
+                src={project.img || project.media} // Fallback to media if img doesn't exist
+                alt={project.text}
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
+        ))}
+
+        <div className="absolute bottom-4 left-4 right-4 z-10">
+          <span 
+            className="text-white text-sm font-bold p-2"
+            style={{ backgroundColor: colors.primary }}
+          >
+            {projects[currentSlide].text}
+          </span>
+        </div>
+
+        {/* Prev Button */}
+        <button
+          onClick={handlePrevSlide}
+          className="absolute top-1/2 left-2 z-10 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors cursor-pointer"
+          aria-label="Previous slide"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNextSlide}
+          className="absolute top-1/2 right-2 z-10 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors cursor-pointer"
+          aria-label="Next slide"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// ===== COMPONENT: HORIZONTAL SWITCH =====
+const HorizontalSwitch = ({ leftLabel, rightLabel, value, onChange, colors, labelStyle }) => {
+  const getButtonStyle = (side) => ({
+    backgroundColor: value === side ? colors.primary : 'transparent',
+    color: value === side ? '#ffffff' : colors.text,
+    fontFamily: labelStyle?.fontFamily || 'inherit',
+    borderBottom: value === side ? 'none' : `2px solid transparent`,
+    cursor: 'pointer',
+  });
+
+  const handleHover = (e, side, isEntering) => {
+    if (value !== side) {
+      e.target.style.borderBottom = isEntering
+        ? `2px solid ${colors.primary}`
+        : '2px solid transparent';
+    }
+  };
+
+  return (
+    <div className="inline-flex overflow-hidden">
+      <button
+        onClick={() => onChange('left')}
+        className="px-4 py-2 text-sm font-bold"
+        style={getButtonStyle('left')}
+        onMouseEnter={(e) => handleHover(e, 'left', true)}
+        onMouseLeave={(e) => handleHover(e, 'left', false)}
+      >
+        {leftLabel}
+      </button>
+      <button
+        onClick={() => onChange('right')}
+        className="px-4 py-2 text-sm font-bold"
+        style={getButtonStyle('right')}
+        onMouseEnter={(e) => handleHover(e, 'right', true)}
+        onMouseLeave={(e) => handleHover(e, 'right', false)}
+      >
+        {rightLabel}
+      </button>
+    </div>
+  );
+};
+
+
+
+
 // ===== MAIN COMPONENT =====
 const Portfolio = () => {
   // Check URL for initial mode
@@ -208,6 +468,8 @@ const Portfolio = () => {
   const [activePage, setActivePage] = useState('Home');
   const [isAboutMeHovered, setIsAboutMeHovered] = useState(false);
   const [portfolioMode, setPortfolioMode] = useState(getInitialMode);
+  
+  const [videoFilter, setVideoFilter] = useState('left'); // 'left' = standard, 'right' = short form
 
   // Update URL when mode changes
   const handleModeChange = (newMode) => {
@@ -226,6 +488,25 @@ const Portfolio = () => {
 
   // Get current projects based on mode
   const currentProjects = portfolioMode === 'coding' ? CODING_PROJECTS : VIDEO_PROJECTS;
+
+  // Get current experimental projects based on mode
+  const currentExperimentalProjects = portfolioMode === 'coding' 
+    ? CODING_EXPERIMENTAL_PROJECTS 
+    : VIDEO_EXPERIMENTAL_PROJECTS;
+
+  // Filter projects for the 'Projects' page
+  const filteredProjects = currentProjects.filter(project => {
+    if (activePage !== 'Projects' || portfolioMode !== 'video') {
+      return true; // Show all projects on 'Home' or in 'coding' mode
+    }
+
+    const isShort = project.tags.includes('Short');
+    if (videoFilter === 'left') {
+      return !isShort; // Show only standard (non-short)
+    } else {
+      return isShort; // Show only short form
+    }
+  });
 
   return (
     <div style={{ backgroundColor: currentColors.background }} className="min-h-screen">
@@ -315,10 +596,16 @@ const Portfolio = () => {
                 <button
                   key={page}
                   onClick={() => setActivePage(page)}
-                  className="text-sm font-medium pb-1 transition-colors cursor-pointer"
+                  className="text-sm font-medium pb-1 cursor-pointer"
                   style={{
                     color: activePage === page ? currentColors.navActive : currentColors.text,
-                    borderBottom: activePage === page ? `2px solid ${currentColors.navActive}` : 'none'
+                    borderBottom: activePage === page ? `2px solid ${currentColors.navActive}` : '2px solid transparent',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activePage !== page) e.target.style.borderBottom = '2px solid white';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activePage !== page) e.target.style.borderBottom = '2px solid transparent';
                   }}
                 >
                   {page}
@@ -419,46 +706,36 @@ const Portfolio = () => {
                     }}>
                       <span>My</span>
                       
-                      {/* Vertical Slider */}
+                      {/* Horizontal Slider */}
                       <div 
-                        className="relative cursor-pointer transition-all duration-300 ease-in-out"
-                        style={{ 
-                          height: '40px',
-                          width: portfolioMode === 'video' ? '90px' : '120px',
-                          overflow: 'hidden'
-                        }}
+                        className="inline-flex cursor-pointer"
                         onClick={() => handleModeChange(portfolioMode === 'video' ? 'coding' : 'video')}
                       >
                         <div 
-                          className="absolute transition-transform duration-300 ease-in-out"
+                          className="px-1 py-1 transition-all duration-200"
                           style={{
-                            transform: portfolioMode === 'video' ? 'translateY(0)' : 'translateY(-40px)',
-                            width: '100%'
+                            backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
+                            color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight,
+                            opacity: portfolioMode === 'video' ? 1 : 0.5
                           }}
                         >
-                          {/* Video option */}
-                          <div 
-                            className="flex items-center justify-center px-3 py-1"
-                            style={{
-                              height: '40px',
-                              backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
-                              color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight
-                            }}
-                          >
-                            Video
-                          </div>
-                          
-                          {/* Coding option */}
-                          <div 
-                            className="flex items-center justify-center px-3 py-1"
-                            style={{
-                              height: '40px',
-                              backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
-                              color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight
-                            }}
-                          >
-                            Coding
-                          </div>
+                          Video
+                        </div>
+                        <div 
+                          className="py-1"
+                          style={{ color: currentColors.textLight }}
+                        >
+                          /
+                        </div>
+                        <div 
+                          className="px-1 py-1 transition-all duration-200"
+                          style={{
+                            backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
+                            color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight,
+                            opacity: portfolioMode === 'coding' ? 1 : 0.5
+                          }}
+                        >
+                          Coding
                         </div>
                       </div>
                       
@@ -517,52 +794,42 @@ const Portfolio = () => {
                   </div>
                 </div>
                 <div className="p-6 text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center justify-center gap-2 md:gap-3" style={{ 
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center justify-center gap-2 md:gap-3 flex-wrap" style={{ 
                     color: currentColors.text,
                     fontFamily: FONTS.headings
                   }}>
                     <span>My</span>
                     
-                    {/* Vertical Slider */}
+                    {/* Horizontal Slider */}
                     <div 
-                      className="relative cursor-pointer transition-all duration-300 ease-in-out"
-                      style={{ 
-                        height: '36px',
-                        width: portfolioMode === 'video' ? '80px' : '110px',
-                        overflow: 'hidden'
-                      }}
+                      className="inline-flex cursor-pointer text-xl md:text-3xl"
                       onClick={() => handleModeChange(portfolioMode === 'video' ? 'coding' : 'video')}
                     >
                       <div 
-                        className="absolute transition-transform duration-300 ease-in-out"
+                        className="px-2 md:px-3 py-1 transition-all duration-300"
                         style={{
-                          transform: portfolioMode === 'video' ? 'translateY(0)' : 'translateY(-36px)',
-                          width: '100%'
+                          backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
+                          color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight,
+                          opacity: portfolioMode === 'video' ? 1 : 0.5
                         }}
                       >
-                        {/* Video option */}
-                        <div 
-                          className="flex items-center justify-center px-3 py-1"
-                          style={{
-                            height: '36px',
-                            backgroundColor: portfolioMode === 'video' ? currentColors.primary : 'transparent',
-                            color: portfolioMode === 'video' ? '#ffffff' : currentColors.textLight
-                          }}
-                        >
-                          Video
-                        </div>
-                        
-                        {/* Coding option */}
-                        <div 
-                          className="flex items-center justify-center px-3 py-1"
-                          style={{
-                            height: '36px',
-                            backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
-                            color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight
-                          }}
-                        >
-                          Coding
-                        </div>
+                        Video
+                      </div>
+                      <div 
+                        className="px-1 md:px-2 py-1"
+                        style={{ color: currentColors.textLight }}
+                      >
+                        /
+                      </div>
+                      <div 
+                        className="px-2 md:px-3 py-1 transition-all duration-300"
+                        style={{
+                          backgroundColor: portfolioMode === 'coding' ? currentColors.primary : 'transparent',
+                          color: portfolioMode === 'coding' ? '#ffffff' : currentColors.textLight,
+                          opacity: portfolioMode === 'coding' ? 1 : 0.5
+                        }}
+                      >
+                        Coding
                       </div>
                     </div>
                     
@@ -600,13 +867,27 @@ const Portfolio = () => {
 
         {activePage === 'Projects' && (
           <div>
-            <h2 className="text-3xl font-bold mb-8" style={{ color: currentColors.text }}>
-              All Projects
-            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+              <h2 className="text-3xl font-bold" style={{ color: currentColors.text, fontFamily: FONTS.headings}}>
+                PROJECTS
+              </h2>
+              {portfolioMode === 'video' && (
+                <HorizontalSwitch
+                  leftLabel="Standard"
+                  rightLabel="Short Form"
+                  value={videoFilter}
+                  onChange={setVideoFilter}
+                  colors={currentColors}
+                  labelStyle={{ fontFamily: FONTS.headings }}
+                />
+              )}
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {currentProjects.map(project => (
+              {filteredProjects.map(project => (
                 <ProjectCard key={project.id} project={project} colors={currentColors} />
               ))}
+              {/* Experimental Slideshow, forced into col 3, row 1, spanning 2 rows on large screens */}
+              <ExperimentalSlideshow projects={currentExperimentalProjects} colors={currentColors} />
             </div>
           </div>
         )}
