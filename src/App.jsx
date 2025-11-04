@@ -155,6 +155,15 @@ const CODING_PROJECTS = [
     tags: ["Python", "IoT", "Multithreading"]
   },
   {
+    id: 15,
+    title: "Extended WhisperX Tool",
+    description: "AI Transcription for After Effects",
+    image: "./img/whisper.PNG",
+    link: "https://github.com/dbezugliy/Extended-WhisperX-AfterEffects",
+    type: "github",
+    tags: ["Python", "JavaScript", "PyTorch"]
+  },
+  {
     id: 14,
     title: "This Portfolio",
     description: "Woah, you found it!",
@@ -183,7 +192,7 @@ const VIDEO_EXPERIMENTAL_PROJECTS = [
     text: "GeoLayers in After Effects"
   },
   {
-    id: 16,
+    id: 17,
     media: "./img/experiment/video_2.mp4",
     type: "video",
     text: "Gaussian Splatting in After Effects"
