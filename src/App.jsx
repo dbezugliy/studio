@@ -518,7 +518,12 @@ const Portfolio = () => {
   });
 
   return (
-    <div style={{ backgroundColor: currentColors.background }} className="min-h-screen">
+    <div 
+      style={{ 
+        backgroundColor: currentColors.background,
+      }} 
+      className="min-h-screen"
+    >
       {/* Font Face Declarations */}
       <style>{`
         @font-face {
@@ -527,11 +532,41 @@ const Portfolio = () => {
           font-weight: normal;
           font-style: normal;
         }
-          @font-face {
+        @font-face {
           font-family: 'Helvetica';
           src: url('./fonts/HelveticaNeueMedium.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
+        }
+
+        /* Prevent layout shift by always showing scrollbar */
+        html {
+          overflow-y: scroll;
+        }
+
+        /* Custom scrollbar styles - GREY VERSION */
+        ::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: ${COLORS.background};
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #4a5568; /* Grey color */
+          border-radius: 6px;
+          border: 2px solid ${COLORS.background};
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #718096; /* Lighter grey on hover */
+        }
+
+        /* For Firefox */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: #1f1f1fff ${COLORS.background};
         }
       `}</style>
 
