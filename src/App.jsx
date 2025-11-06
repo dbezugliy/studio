@@ -155,7 +155,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "IoT", "Multithreading"]
   },
   {
-    id: 15,
+    id: 14,
     title: "Extended WhisperX Tool",
     description: "AI Transcription for After Effects",
     image: "./img/whisper.PNG",
@@ -164,7 +164,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "JavaScript", "PyTorch"]
   },
   {
-    id: 14,
+    id: 15,
     title: "This Portfolio",
     description: "Woah, you found it!",
     image: "./img/portfolio.PNG",
@@ -173,7 +173,7 @@ const CODING_PROJECTS = [
     tags: ["React", "Tailwind CSS", "Vite"]
   },
   {
-    id: 15,
+    id: 16,
     title: "MBTI Tweet Analysis",
     description: "Machine Learning Classification",
     image: "./img/tweet_results.png",
@@ -186,13 +186,13 @@ const CODING_PROJECTS = [
 // ===== EXPERIMENTAL PROJECTS CONFIGURATION =====
 const VIDEO_EXPERIMENTAL_PROJECTS = [
   {
-    id: 16,
+    id: 17,
     media: "./img/experiment/video_1.mp4",
     type: "video",
     text: "GeoLayers in After Effects"
   },
   {
-    id: 17,
+    id: 18,
     media: "./img/experiment/video_2.mp4",
     type: "video",
     text: "Gaussian Splatting in After Effects"
@@ -201,13 +201,13 @@ const VIDEO_EXPERIMENTAL_PROJECTS = [
 
 const CODING_EXPERIMENTAL_PROJECTS = [
   {
-    id: 18,
+    id: 19,
     img: "./img/experiment/touch.jpg",
     type: "image", // Added type field
     text: "Customizable Pressure Keys via Arduino"
   },
   {
-    id: 19,
+    id: 20,
     media: "./img/experiment/coding_1.mp4",
     type: "video",
     text: "OBS Global Hotkey Tracker"
