@@ -63,6 +63,15 @@ const VIDEO_PROJECTS = [
   },
   {
     id: 4,
+    title: "I Travled for Two Months",
+    description: "Personal Vlog",
+    image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=lfDsLk6HTpE",
+    type: "youtube",
+    tags: ["After Effects", "Photoshop"]
+  },
+  {
+    id: 5,
     title: "Support Ukraine with Us",
     description: "Voluntary Non-Profit",
     image: "https://img.youtube.com/vi/lg4UsMl1KYw/maxresdefault.jpg",
@@ -71,7 +80,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Humanitarian Aid", "Short"]
   },
   {
-    id: 5,
+    id: 6,
     title: "The Ultimate Peak Achievement",
     description: "Entertainment / Gaming",
     image: "https://img.youtube.com/vi/O2txDgHe77g/maxresdefault.jpg",
@@ -80,7 +89,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Short"]
   },
   {
-    id: 6,
+    id: 7,
     title: "This is Peak PVP",
     description: "Entertainment / Gaming",
     image: "https://img.youtube.com/vi/TKpMZxe5MVI/maxresdefault.jpg",
@@ -89,7 +98,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Short"]
   },
   {
-    id: 7,
+    id: 8,
     title: "Quess My Favorite Video Game",
     description: "Quiz Format",
     image: "https://img.youtube.com/vi/5LQnUJ755D8/maxresdefault.jpg",
@@ -98,7 +107,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Esports", "Short"]
   },
   {
-    id: 8,
+    id: 9,
     title: "All Aim, No Brain",
     description: "KovaaK 2.0 Sponsorship",
     image: "https://img.youtube.com/vi/UVIURDfJ3eY/maxresdefault.jpg",
@@ -107,7 +116,7 @@ const VIDEO_PROJECTS = [
     tags: ["Premiere", "Esports"]
   },
   {
-    id: 9,
+    id: 10,
     title: "Who Are We",
     description: "Long Form Closed-Captioning",
     image: "https://img.youtube.com/vi/625AmS7agzY/maxresdefault.jpg",
@@ -116,22 +125,13 @@ const VIDEO_PROJECTS = [
     tags: ["Premiere", "Esports"]
   },
   {
-    id: 10,
+    id: 11,
     title: "QUAD DAY 2022",
     description: "Informational Event Video",
     image: "https://img.youtube.com/vi/e_la0KhjZ8A/maxresdefault.jpg",
     link: "https://www.youtube.com/watch?v=e_la0KhjZ8A",
     type: "youtube",
     tags: ["Premiere", "Esports"]
-  },
-  {
-    id: 11,
-    title: "I Travled for Two Months",
-    description: "Personal Vlog",
-    image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
-    link: "https://www.youtube.com/watch?v=lfDsLk6HTpE",
-    type: "youtube",
-    tags: ["After Effects", "Photoshop"]
   }
 ];
 
