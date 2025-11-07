@@ -63,12 +63,12 @@ const VIDEO_PROJECTS = [
   },
   {
     id: 4,
-    title: "I Travled for Two Months",
-    description: "Personal Vlog",
-    image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
-    link: "https://www.youtube.com/watch?v=lfDsLk6HTpE",
+    title: "Support Ukraine with Us",
+    description: "Voluntary Non-Profit",
+    image: "https://img.youtube.com/vi/lg4UsMl1KYw/maxresdefault.jpg",
+    link: "https://youtube.com/shorts/lg4UsMl1KYw",
     type: "youtube",
-    tags: ["After Effects", "Photoshop"]
+    tags: ["After Effects", "Humanitarian Aid", "Short"]
   },
   {
     id: 5,
@@ -123,12 +123,21 @@ const VIDEO_PROJECTS = [
     link: "https://www.youtube.com/watch?v=e_la0KhjZ8A",
     type: "youtube",
     tags: ["Premiere", "Esports"]
+  },
+  {
+    id: 11,
+    title: "I Travled for Two Months",
+    description: "Personal Vlog",
+    image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=lfDsLk6HTpE",
+    type: "youtube",
+    tags: ["After Effects", "Photoshop"]
   }
 ];
 
 const CODING_PROJECTS = [
   {
-    id: 11,
+    id: 12,
     title: "Caterpillar Intern",
     description: "Notification Service Engine",
     image: "./img/cat.jpg",
@@ -137,7 +146,7 @@ const CODING_PROJECTS = [
     tags: ["Java", "Scala", "AWS", "Swagger"]
   },
   {
-    id: 12,
+    id: 13,
     title: "Various Game Projects",
     description: "VR, Gamejams, and More",
     image: "./img/game.jpg",
@@ -146,7 +155,7 @@ const CODING_PROJECTS = [
     tags: ["C++", "Q/A", "Unreal"]
   },
   {
-    id: 13,
+    id: 14,
     title: "Homemade Laser Tag",
     description: "Client-Server Architecture",
     image: "./img/laser_gun.PNG",
@@ -155,7 +164,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "IoT", "Multithreading"]
   },
   {
-    id: 14,
+    id: 15,
     title: "Extended WhisperX Tool",
     description: "AI Transcription for After Effects",
     image: "./img/whisper.PNG",
@@ -164,7 +173,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "JavaScript", "PyTorch"]
   },
   {
-    id: 15,
+    id: 16,
     title: "This Portfolio",
     description: "Woah, you found it!",
     image: "./img/portfolio.PNG",
@@ -173,7 +182,7 @@ const CODING_PROJECTS = [
     tags: ["React", "Tailwind CSS", "Vite"]
   },
   {
-    id: 16,
+    id: 17,
     title: "MBTI Tweet Analysis",
     description: "Machine Learning Classification",
     image: "./img/tweet_results.png",
@@ -186,13 +195,13 @@ const CODING_PROJECTS = [
 // ===== EXPERIMENTAL PROJECTS CONFIGURATION =====
 const VIDEO_EXPERIMENTAL_PROJECTS = [
   {
-    id: 17,
+    id: 18,
     media: "./img/experiment/video_1.mp4",
     type: "video",
     text: "GeoLayers in After Effects"
   },
   {
-    id: 18,
+    id: 19,
     media: "./img/experiment/video_2.mp4",
     type: "video",
     text: "Gaussian Splatting in After Effects"
@@ -201,13 +210,13 @@ const VIDEO_EXPERIMENTAL_PROJECTS = [
 
 const CODING_EXPERIMENTAL_PROJECTS = [
   {
-    id: 19,
+    id: 20,
     img: "./img/experiment/touch.jpg",
     type: "image", // Added type field
     text: "Customizable Pressure Keys via Arduino"
   },
   {
-    id: 20,
+    id: 21,
     media: "./img/experiment/coding_1.mp4",
     type: "video",
     text: "OBS Global Hotkey Tracker"
