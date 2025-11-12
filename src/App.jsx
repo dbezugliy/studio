@@ -35,7 +35,7 @@ const FONTS = {
 // ===== PROJECTS CONFIGURATION =====
 const VIDEO_PROJECTS = [
   {
-    id: 1,
+    id: "dont-wait-around",
     title: "Don't Wait Around",
     description: "High-Pace Transitional Editing",
     image: "https://img.youtube.com/vi/UHAEcINMhCk/maxresdefault.jpg",
@@ -44,7 +44,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Photoshop"]
   },
   {
-    id: 2,
+    id: "esports-invitational",
     title: "Esports Invitational",
     description: "Sponsor Colaboration Event",
     image: "https://pbs.twimg.com/ext_tw_video_thumb/1634245203690135554/pu/img/TO5bI23jJnO9GfUU.jpg",
@@ -53,7 +53,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Esports"]
   },
   {
-    id: 3,
+    id: "look-at-me",
     title: "Look At Me",
     description: "Quick Turnaround Project",
     image: "https://img.youtube.com/vi/uJos6RXDRpM/maxresdefault.jpg",
@@ -62,7 +62,7 @@ const VIDEO_PROJECTS = [
     tags: ["Premiere", "Esports"]
   },
   {
-    id: 4,
+    id: "i-traveled-two-months",
     title: "I Travled for Two Months",
     description: "Personal Vlog",
     image: "https://img.youtube.com/vi/lfDsLk6HTpE/maxresdefault.jpg",
@@ -71,7 +71,16 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Photoshop"]
   },
   {
-    id: 5,
+    id: "i-made-him-crash-out",
+    title: "I Made Him Crash Out",
+    description: "Hopecore Edit",
+    image: "https://img.youtube.com/vi/FD_DPJJVnGk/maxresdefault.jpg",
+    link: "https://www.youtube.com/shorts/FD_DPJJVnGk",
+    type: "youtube",
+    tags: ["Premiere Pro", "Short"]
+  },
+  {
+    id: "support-ukraine",
     title: "Support Ukraine with Us",
     description: "Voluntary Non-Profit",
     image: "https://img.youtube.com/vi/lg4UsMl1KYw/maxresdefault.jpg",
@@ -80,7 +89,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Humanitarian Aid", "Short"]
   },
   {
-    id: 6,
+    id: "the-ultimate-peak-achievement",
     title: "The Ultimate Peak Achievement",
     description: "Entertainment / Gaming",
     image: "https://img.youtube.com/vi/O2txDgHe77g/maxresdefault.jpg",
@@ -89,7 +98,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Short"]
   },
   {
-    id: 7,
+    id: "this-is-peak-pvp",
     title: "This is Peak PVP",
     description: "Entertainment / Gaming",
     image: "https://img.youtube.com/vi/TKpMZxe5MVI/maxresdefault.jpg",
@@ -98,7 +107,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Short"]
   },
   {
-    id: 8,
+    id: "quess-my-favorite-video-game",
     title: "Quess My Favorite Video Game",
     description: "Quiz Format",
     image: "https://img.youtube.com/vi/5LQnUJ755D8/maxresdefault.jpg",
@@ -107,7 +116,7 @@ const VIDEO_PROJECTS = [
     tags: ["After Effects", "Esports", "Short"]
   },
   {
-    id: 9,
+    id: "all-aim-no-brain",
     title: "All Aim, No Brain",
     description: "KovaaK 2.0 Sponsorship",
     image: "https://img.youtube.com/vi/UVIURDfJ3eY/maxresdefault.jpg",
@@ -116,7 +125,7 @@ const VIDEO_PROJECTS = [
     tags: ["Premiere", "Esports"]
   },
   {
-    id: 10,
+    id: "who-are-we",
     title: "Who Are We",
     description: "Long Form Closed-Captioning",
     image: "https://img.youtube.com/vi/625AmS7agzY/maxresdefault.jpg",
@@ -125,7 +134,7 @@ const VIDEO_PROJECTS = [
     tags: ["Premiere", "Esports"]
   },
   {
-    id: 11,
+    id: "quad-day-2022",
     title: "QUAD DAY 2022",
     description: "Informational Event Video",
     image: "https://img.youtube.com/vi/e_la0KhjZ8A/maxresdefault.jpg",
@@ -137,7 +146,7 @@ const VIDEO_PROJECTS = [
 
 const CODING_PROJECTS = [
   {
-    id: 12,
+    id: "caterpillar-intern",
     title: "Caterpillar Intern",
     description: "Notification Service Engine",
     image: "./img/cat.jpg",
@@ -146,7 +155,7 @@ const CODING_PROJECTS = [
     tags: ["Java", "Scala", "AWS", "Swagger"]
   },
   {
-    id: 13,
+    id: "various-game-projects",
     title: "Various Game Projects",
     description: "VR, Gamejams, and More",
     image: "./img/game.jpg",
@@ -155,7 +164,7 @@ const CODING_PROJECTS = [
     tags: ["C++", "Q/A", "Unreal"]
   },
   {
-    id: 14,
+    id: "homemade-laser-tag",
     title: "Homemade Laser Tag",
     description: "Client-Server Architecture",
     image: "./img/laser_gun.PNG",
@@ -164,7 +173,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "IoT", "Multithreading"]
   },
   {
-    id: 15,
+    id: "extended-whisperx-tool",
     title: "Extended WhisperX Tool",
     description: "AI Transcription for After Effects",
     image: "./img/whisper.PNG",
@@ -173,7 +182,7 @@ const CODING_PROJECTS = [
     tags: ["Python", "JavaScript", "PyTorch"]
   },
   {
-    id: 16,
+    id: "this-portfolio",
     title: "This Portfolio",
     description: "Woah, you found it!",
     image: "./img/portfolio.PNG",
@@ -182,7 +191,7 @@ const CODING_PROJECTS = [
     tags: ["React", "Tailwind CSS", "Vite"]
   },
   {
-    id: 17,
+    id: "mbti-tweet-analysis",
     title: "MBTI Tweet Analysis",
     description: "Machine Learning Classification",
     image: "./img/tweet_results.png",
@@ -195,13 +204,13 @@ const CODING_PROJECTS = [
 // ===== EXPERIMENTAL PROJECTS CONFIGURATION =====
 const VIDEO_EXPERIMENTAL_PROJECTS = [
   {
-    id: 18,
+    id: "geolayers-in-after-effects",
     media: "./img/experiment/video_1.mp4",
     type: "video",
     text: "GeoLayers in After Effects"
   },
   {
-    id: 19,
+    id: "gaussian-splatting-in-after-effects",
     media: "./img/experiment/video_2.mp4",
     type: "video",
     text: "Gaussian Splatting in After Effects"
@@ -210,13 +219,13 @@ const VIDEO_EXPERIMENTAL_PROJECTS = [
 
 const CODING_EXPERIMENTAL_PROJECTS = [
   {
-    id: 20,
+    id: "customizable-pressure-keys",
     img: "./img/experiment/touch.jpg",
     type: "image", // Added type field
     text: "Customizable Pressure Keys via Arduino"
   },
   {
-    id: 21,
+    id: "obs-hotkey-tracker",
     media: "./img/experiment/coding_1.mp4",
     type: "video",
     text: "OBS Global Hotkey Tracker"
@@ -300,6 +309,8 @@ const ProjectCard = ({ project, colors }) => {
 // ===== COMPONENT: EXPERIMENTAL SLIDESHOW =====
 const ExperimentalSlideshow = ({ projects, colors }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const timerRef = useRef(null);
+  const videoRef = useRef(null);
 
   const nextSlide = () => {
     setCurrentSlide(prev => (prev + 1) % projects.length);
@@ -309,51 +320,40 @@ const ExperimentalSlideshow = ({ projects, colors }) => {
     setCurrentSlide(prev => (prev - 1 + projects.length) % projects.length);
   };
 
-  // Create a ref to store the timer
-  const timerRef = useRef(null);
-
-  // Auto-rotate every 10 seconds with reset capability
-  useEffect(() => {
-    // Clear existing timer
+  const clearTimer = () => {
     if (timerRef.current) {
-      clearInterval(timerRef.current);
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  const startImageTimer = () => {
+    clearTimer();
+    timerRef.current = setTimeout(nextSlide, 8000);  // 8 seconds for images
+  };
+
+  useEffect(() => {
+    const currentProject = projects[currentSlide];
+    
+    if (currentProject.type === 'image') {
+      startImageTimer();
     }
     
-    // Set new timer
-    timerRef.current = setInterval(nextSlide, 10000);
-    
-    // Cleanup on unmount
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, [projects.length]);
+    return () => clearTimer();
+  }, [currentSlide, projects]);
 
   const handleNextSlide = () => {
-    // Clear existing timer
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    
-    // Go to next slide
+    clearTimer();
     nextSlide();
-    
-    // Reset timer
-    timerRef.current = setInterval(nextSlide, 10000);
   };
 
   const handlePrevSlide = () => {
-    // Clear existing timer
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    
-    // Go to previous slide
+    clearTimer();
     prevSlide();
-    
-    // Reset timer
-    timerRef.current = setInterval(nextSlide, 10000);
+  };
+
+  const handleVideoEnded = () => {
+    nextSlide();
   };
 
   return (
@@ -371,16 +371,21 @@ const ExperimentalSlideshow = ({ projects, colors }) => {
           <div
             key={project.id}
             className="absolute top-0 left-0 w-full h-full"
-            style={{ opacity: index === currentSlide ? 1 : 0 }}
+            style={{ 
+              opacity: index === currentSlide ? 1 : 0,
+              pointerEvents: index === currentSlide ? 'auto' : 'none'
+            }}
           >
             {project.type === "video" ? (
               <video
+                key={`${project.id}-${index === currentSlide ? 'active' : 'inactive'}`}
+                ref={index === currentSlide ? videoRef : null}
                 src={project.media}
                 className="w-full h-full object-cover"
                 muted
-                autoPlay
-                loop
+                autoPlay={index === currentSlide}
                 playsInline
+                onEnded={handleVideoEnded}
               />
             ) : (
               <img
